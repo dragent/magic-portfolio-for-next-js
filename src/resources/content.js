@@ -1,16 +1,17 @@
 import { Logo } from "@once-ui-system/core";
+import { language } from "gray-matter";
 
 const person = {
-  firstName: "Selene",
-  lastName: "Yu",
+  firstName: "Alexis",
+  lastName: "CAU",
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Design Engineer",
-  avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  role: "Developpeur PHP / Symfony",
+  avatar: "/images/avatar.png",
+  email: "alexiscau@gmail.com",
+  location: "Europe/Paris", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
+  languages: ["Français","Anglais"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
@@ -30,17 +31,12 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system/nextjs-starter",
+    link: "https://github.com/dragent",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    link: "https://www.linkedin.com/in/alexis-cau/",
   },
   {
     name: "Email",
@@ -53,8 +49,8 @@ const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
+  title: `Portfolio de ${person.name}`,
+  description: `Portfolio website montrant mon travaille en tant que ${person.role}`,
   headline: <>Building bridges between design and code</>,
   featured: {
     display: true,
@@ -90,20 +86,19 @@ const about = {
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Développeur web back‑end passionné, capable de transformer des besoins complexes en solutions numériques robustes et évolutives. 
+        Fort d’une expérience significative sur des projets variés, je maîtrise la manipulation de données, la conception d’API et l’interaction entre front‑end et bases de données. 
       </>
     ),
   },
   work: {
     display: true, // set to false to hide this section
-    title: "Work Experience",
+    title: "Expériences professionnelle",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Freelance",
+        timeframe: "2023 - 2024",
+        role: "Développeur Web",
         achievements: [
           <>
             Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
@@ -112,6 +107,23 @@ const about = {
           <>
             Spearheaded the integration of AI tools into design workflows, enabling designers to
             iterate 50% faster.
+          </>,
+        ],
+        images: [
+        ],
+      },
+      {
+        company: "Baticonform",
+        timeframe: "2021 - 2022",
+        role: "Développeur Web",
+        achievements: [
+          <>
+            Developed a design system that unified the brand across multiple platforms, improving
+            design consistency by 40%.
+          </>,
+          <>
+            Led a cross-functional team to launch a new product line, contributing to a 15% increase
+            in overall company revenue.
           </>,
         ],
         images: [
@@ -124,27 +136,34 @@ const about = {
           },
         ],
       },
+    ],
+  },
+  personnal: {
+    display: true, // set to false to hide this section
+    title: "Projets personnel",
+    projects: [
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        title: "Freelance",
+        timeframe: "2023 - 2024",
+        language: "PHP, Symfony, Next.js",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
+            engagement and 30% faster load times.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Spearheaded the integration of AI tools into design workflows, enabling designers to
+            iterate 50% faster.
           </>,
         ],
-        images: [],
+        images: [
+        ],
       },
     ],
   },
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Etudes",
     institutions: [
       {
         name: "University of Jakarta",

@@ -40,6 +40,11 @@ export default function About() {
       items: about.work.experiences.map((experience) => experience.company),
     },
     {
+      title: about.personnal.title,
+      display: about.personnal.display,
+      items: about.personnal.projects.map((project) => project.title),
+    },
+    {
       title: about.studies.title,
       display: about.studies.display,
       items: about.studies.institutions.map((institution) => institution.name),
@@ -129,7 +134,7 @@ export default function About() {
                 vertical="center"
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Flex paddingX="8">Schedule a call</Flex>
+                <Flex paddingX="8">Programmer un rendez vous</Flex>
                 <IconButton
                   href={about.calendar.link}
                   data-border="rounded"
@@ -218,6 +223,68 @@ export default function About() {
                     {experience.images.length > 0 && (
                       <Flex fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
                         {experience.images.map((image, index) => (
+                          <Flex
+                            key={index}
+                            border="neutral-medium"
+                            radius="m"
+                            //@ts-ignore
+                            minWidth={image.width}
+                            //@ts-ignore
+                            height={image.height}
+                          >
+                            <Media
+                              enlarge
+                              radius="m"
+                              //@ts-ignore
+                              sizes={image.width.toString()}
+                              //@ts-ignore
+                              alt={image.alt}
+                              //@ts-ignore
+                              src={image.src}
+                            />
+                          </Flex>
+                        ))}
+                      </Flex>
+                    )}
+                  </Column>
+                ))}
+              </Column>
+            </>
+          )}
+
+          {about.personnal.display && (
+            <>
+              <Heading as="h2" id={about.personnal.title} variant="display-strong-s" marginBottom="m">
+                {about.personnal.title}
+              </Heading>
+              <Column fillWidth gap="l" marginBottom="40">
+                {about.personnal.projects.map((project, index) => (
+                  <Column key={`${project.title}-${project.language}-${index}`} fillWidth>
+                    <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                      <Text id={project.title} variant="heading-strong-l">
+                        {project.title}
+                      </Text>
+                      <Text variant="heading-default-xs" onBackground="neutral-weak">
+                        {project.timeframe}
+                      </Text>
+                    </Flex>
+                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                      {project.language}
+                    </Text>
+                    <Column as="ul" gap="16">
+                      {project.achievements.map((achievement: JSX.Element, index: number) => (
+                        <Text
+                          as="li"
+                          variant="body-default-m"
+                          key={`${project.title}-${index}`}
+                        >
+                          {achievement}
+                        </Text>
+                      ))}
+                    </Column>
+                    {project.images.length > 0 && (
+                      <Flex fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
+                        {project.images.map((image, index) => (
                           <Flex
                             key={index}
                             border="neutral-medium"
