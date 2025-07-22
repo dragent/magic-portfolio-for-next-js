@@ -7,12 +7,12 @@ const routes = {
   "/": true,
   "/about": true,
   "/work": true,
-  "/blog": true,
-  "/gallery": true,
+  "/blog": false,
+  "/gallery": false,
 };
 
 const display = {
-  location: true,
+  location: false,
   time: true,
   themeSwitcher: true
 };
