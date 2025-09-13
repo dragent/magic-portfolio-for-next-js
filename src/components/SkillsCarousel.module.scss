@@ -1,0 +1,65 @@
+@use "./breakpoints.scss" as *;
+
+.skillsCarousel {
+  position: relative;
+  overflow: visible;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.skillsCarousel:hover {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.skillsCarousel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border-radius: 0;
+  transition: all 0.5s ease;
+  z-index: -1;
+  opacity: 0;
+}
+
+.skillsCarousel:hover::before {
+  opacity: 0;
+}
+
+
+@media (max-width: $s) {
+  .skillsCarousel {
+    backdrop-filter: blur(20px);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  
+  .skillsCarousel:hover {
+    backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  
+  .skillsCarousel::before {
+    inset: 0;
+  }
+  
+  .skillsCarousel:hover::before {
+    opacity: 0;
+  }
+}

@@ -14,6 +14,8 @@ import {
 } from "@once-ui-system/core";
 import { baseURL, about, person, social } from "@/resources";
 import TableOfContents from "@/components/about/TableOfContents";
+import ProfileCard from "@/components/about/ProfileCard";
+import { SkillsCarousel } from "@/components";
 import styles from "@/components/about/about.module.scss";
 import React from "react";
 
@@ -90,15 +92,18 @@ export default function About() {
             minWidth="160"
             paddingX="l"
             paddingBottom="xl"
-            gap="m"
+            gap="l"
             flex={3}
             horizontal="center"
           >
-            <Avatar src={person.avatar} size="xl" />
-            <Flex gap="8" vertical="center">
-              <Icon onBackground="accent-weak" name="globe" />
-              {person.location}
-            </Flex>
+            <ProfileCard
+              avatarUrl= {person.photo}
+              name= {person.firstName + person.lastName}
+              title = { person.role }
+              showUserInfo = {false}
+              iconUrl = {person.logo}
+              grainUrl= {person.grain}
+            />
             {person.languages.length > 0 && (
               <Flex wrap gap="8">
                 {person.languages.map((language, index) => (
@@ -344,42 +349,7 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text id={skill.title} variant="heading-strong-l">{skill.title}</Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.images && skill.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
-                          <Flex
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            //@ts-ignore
-                            minWidth={image.width}
-                            //@ts-ignore
-                            height={image.height}
-                          >
-                            <Media
-                              enlarge
-                              radius="m"
-                              //@ts-ignore
-                              sizes={image.width.toString()}
-                              //@ts-ignore
-                              alt={image.alt}
-                              //@ts-ignore
-                              src={image.src}
-                            />
-                          </Flex>
-                        ))}
-                      </Flex>
-                    )}
-                  </Column>
-                ))}
-              </Column>
+              <SkillsCarousel categories={about.technical.categories} />
             </>
           )}
         </Column>

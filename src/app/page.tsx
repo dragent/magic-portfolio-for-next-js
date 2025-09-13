@@ -2,11 +2,17 @@ import React from "react";
 
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Meta, Schema } from "@once-ui-system/core";
 import { home, about, person, newsletter, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
+import { Mailchimp, ProjectCarousel } from "@/components";
 import { Posts } from "@/components/blog/Posts";
+import { getPosts } from "@/utils/utils";
 
 export default function Home() {
+  // Récupérer les projets côté serveur
+  const allProjects = getPosts(["src", "app", "work", "projects"]);
+  const sortedProjects = allProjects.sort((a, b) => {
+    return new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime();
+  });
+  const featuredProjects = sortedProjects.slice(0, 4);
   return (
     <Column maxWidth="m" gap="xl" horizontal="center">
       <Schema
@@ -68,7 +74,7 @@ export default function Home() {
         </Column>
       </Column>
       <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
+        <ProjectCarousel projects={featuredProjects} />
       </RevealFx>
       {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
@@ -82,7 +88,6 @@ export default function Home() {
           </Flex>
         </Flex>
       )}
-      <Projects range={[2]} />
       {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );

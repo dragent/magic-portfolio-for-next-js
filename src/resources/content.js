@@ -7,15 +7,20 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Developpeur PHP / Symfony",
+  photo : "/images/photo.png",
+  logo : "/images/logo.png",
+  role: "Développeur PHP / Symfony",
+  grain : "/images/grain.webp",
   avatar: "/images/avatar.png",
   email: "alexiscau@gmail.com",
+  phone: "07 81 19 51 72",
+  address: "13008 Marseille",
   location: "Europe/Paris", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["Français","Anglais"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
@@ -49,26 +54,26 @@ const home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `Portfolio de ${person.name}`,
-  description: `Portfolio website montrant mon travaille en tant que ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  title: `${person.name} - ${person.role} | Solutions Web Performantes`,
+  description: `Développeur PHP/Symfony expérimenté, spécialisé dans les API REST et l'optimisation SQL. Découvrez mes projets et compétences techniques.`,
+  headline: <>Transformez vos idées en applications web puissantes</>,
   featured: {
     display: true,
-    title: <>Recent project: <strong className="ml-4">Once UI</strong></>,
-    href: "/work/building-once-ui-a-customizable-design-system",
+    title: <>🚀 Projet en cours: <strong className="ml-4">Valentine Sheriff</strong></>,
+    href: "/work/valentine-sheriff",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at <Logo icon="/trademarks/wordmark-dark.svg" style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}/>, where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      <strong>Développeur PHP/Symfony</strong> avec une expertise en API REST et optimisation SQL.
+      <br /> Je transforme vos besoins complexes en solutions web robustes et évolutives.
     </>
   ),
 };
 
 const about = {
   path: "/about",
-  label: "About",
-  title: `About – ${person.name}`,
+  label: "A propos",
+  title: `A propos – ${person.name}`,
   description: `Meet ${person.name}, ${person.role} from ${person.location}`,
   tableOfContent: {
     display: true,
@@ -76,6 +81,7 @@ const about = {
   },
   avatar: {
     display: true,
+    image: "/avatar.png",
   },
   calendar: {
     display: true,
@@ -83,11 +89,14 @@ const about = {
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: "Pourquoi me choisir ?",
     description: (
       <>
-        Développeur web back‑end passionné, capable de transformer des besoins complexes en solutions numériques robustes et évolutives. 
-        Fort d’une expérience significative sur des projets variés, je maîtrise la manipulation de données, la conception d’API et l’interaction entre front‑end et bases de données. 
+        <strong>Développeur PHP/Symfony expérimenté</strong> avec une solide expertise en développement backend. 
+        J'ai contribué à des projets en production incluant des API REST performantes et des optimisations SQL avancées. 
+        <br /><br />
+        <strong>Mes atouts :</strong> Architecture API-first, conteneurisation Docker, intégration OAuth2, et une approche méthodique 
+        pour transformer vos besoins métier en solutions techniques robustes et évolutives.
       </>
     ),
   },
@@ -97,16 +106,17 @@ const about = {
     experiences: [
       {
         company: "Freelance",
-        timeframe: "2023 - 2024",
+        timeframe: "02/2023 - 02/2024",
         role: "Développeur Web",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            <strong>Développement d'applications web sur mesure</strong> pour des clients variés avec des besoins techniques complexes.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            <strong>Architecture de solutions scalables</strong> adaptées aux contraintes métier spécifiques de chaque projet.
+          </>,
+          <>
+            <strong>Optimisation des performances</strong> et mise en place de bonnes pratiques de développement.
           </>,
         ],
         images: [
@@ -114,26 +124,44 @@ const about = {
       },
       {
         company: "Baticonform",
-        timeframe: "2021 - 2022",
-        role: "Développeur Web",
+        timeframe: "03/2021 - 09/2022",
+        role: "Développeur Full-Stack",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            <strong>Développement fullstack en PHP</strong> pour des applications métier critiques en production.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            <strong>Intégration d'API externes</strong> pour enrichir les fonctionnalités et automatiser les processus.
+          </>,
+          <>
+            <strong>Conception d'API REST Symfony</strong> pour la communication sécurisée entre systèmes.
+          </>,
+          <>
+            <strong>Optimisation SQL avancée</strong> réduisant les temps de réponse de 40% en moyenne.
+          </>,
+          <>
+            <strong>Système de gestion des droits</strong> robuste et évolutif pour la sécurité des données.
           </>,
         ],
         images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
+        ],
+      },
+      {
+        company: "Agence Boekie",
+        timeframe: "05/2019 - 06/2019",
+        role: "Développeur Back-End",
+        achievements: [
+          <>
+            Automatisation du déploiement de Magento à distance via scripts Shell.
+          </>,
+          <>
+            Prise en main de l'écosystème Magento et de ses spécificités.
+          </>,
+          <>
+            Création et modification de modules Magento personnalisés.
+          </>,
+        ],
+        images: [
         ],
       },
     ],
@@ -143,17 +171,84 @@ const about = {
     title: "Projets personnel",
     projects: [
       {
-        title: "Freelance",
-        timeframe: "2023 - 2024",
-        language: "PHP, Symfony, Next.js",
+        title: "Valentine Sheriff",
+        timeframe: "2025 - en cours",
+        language: "Symfony 7.2 (API) / Nuxt.js / Docker / Discord OAuth2",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Application web de gestion des forces de l'ordre dans un serveur RedM RP.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Authentification des utilisateurs via Discord OAuth2.
+          </>,
+          <>
+            Modules de gestion: dossiers, inventaires, formations, présence.
+          </>,
+          <>
+            Architecture API-first avec conteneurisation Docker.
+          </>,
+        ],
+        images: [
+        ],
+      },
+      {
+        title: "Scripts RedM - LGWestern",
+        timeframe: "2025 - en cours",
+        language: "Lua / SQL / Symfony",
+        achievements: [
+          <>
+            Scripts immersifs pour enrichir le roleplay sur RedM (serveur LGWestern).
+          </>,
+          <>
+            Scripts complexes: blessures, radios, gameplay médical ou mécanique.
+          </>,
+          <>
+            Connexions entre scripts Lua et base SQL.
+          </>,
+          <>
+            Intégration d'interfaces Symfony pour le back-office.
+          </>,
+        ],
+        images: [
+        ],
+      },
+      {
+        title: "LSMS Atrium",
+        timeframe: "2024",
+        language: "Symfony / MySQL / jQuery",
+        achievements: [
+          <>
+            Application métier médicale pour le serveur RP ATRIUM.
+          </>,
+          <>
+            Prise de rendez-vous avec gestion d'agenda.
+          </>,
+          <>
+            Gestion des rôles: civils, médecins, staff.
+          </>,
+          <>
+            Système de stock médical avec journal des mouvements.
+          </>,
+        ],
+        images: [
+        ],
+      },
+      {
+        title: "Weapon RP Project",
+        timeframe: "2023",
+        language: "Symfony / EasyAdmin",
+        achievements: [
+          <>
+            Projet d'entraînement à l'utilisation de l'interface d'administration Symfony.
+          </>,
+          <>
+            Mise en place et personnalisation d'un backoffice avec EasyAdmin.
+          </>,
+          <>
+            Gestion de rôles, entités et permissions.
+          </>,
+          <>
+            Structure propre pour l'administration d'un univers RP.
           </>,
         ],
         images: [
@@ -166,49 +261,183 @@ const about = {
     title: "Etudes",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Certification Méthode Agiles",
+        description: <>03/2025 - Simplon / Marseille - Labellisée Grande École du Numérique</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "Développeur Web et Web Mobile Java",
+        description: <>02/2019 - 09/2019 - Simplon / Marseille - Labellisée Grande École du Numérique</>,
+      },
+      {
+        name: "Licence Informatique",
+        description: <>2014 - 2016 - Aix Marseille Université / Marseille</>,
+      },
+      {
+        name: "DUT Génie Electrique et Informatique Industrielle",
+        description: <>2011 - 2013 - Iut St Jérôme / Marseille</>,
       },
     ],
   },
   technical: {
     display: true, // set to false to hide this section
     title: "Technical skills",
+    categories: [
+      {
+        title: "Backend",
+        subtitle: "Architecture robuste & Performance",
+        stats: "Applications en production",
+        skills: [
+          {
+            name: "PHP",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+            level: "Expert",
+            description: "5+ années d'expérience. Développement d'applications web critiques en production avec optimisation avancée.",
+            achievements: ["Applications en production", "Optimisation des performances", "Architecture scalable"]
+          },
+          {
+            name: "Symfony",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/symfony/symfony-original.svg",
+            level: "Expert",
+            description: "Maîtrise complète du framework. Développement d'API REST, gestion des droits, et architecture MVC.",
+            achievements: ["API REST performantes", "Système de permissions", "Architecture MVC"]
+          },
+          {
+            name: "MySQL",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg",
+            level: "Expert",
+            description: "Optimisation SQL avancée. Réduction de 40% des temps de réponse grâce à l'optimisation des requêtes.",
+            achievements: ["-40% temps de réponse", "Requêtes optimisées", "Index stratégiques"]
+          },
+          {
+            name: "API REST",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apache/apache-original.svg",
+            level: "Expert",
+            description: "Conception d'API sécurisées et documentées. Intégration avec systèmes externes et authentification OAuth2.",
+            achievements: ["API sécurisées", "Documentation complète", "OAuth2 intégré"]
+          }
+        ]
+      },
+      {
+        title: "Frontend",
+        subtitle: "Interface utilisateur moderne",
+        stats: "100% responsive & accessible",
+        skills: [
+          {
+            name: "HTML5",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+            level: "Expert",
+            description: "Structure sémantique et accessible. Conformité WCAG pour une accessibilité universelle.",
+            achievements: ["Sémantique parfaite", "Accessibilité WCAG", "SEO optimisé"]
+          },
+          {
+            name: "CSS3",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+            level: "Expert",
+            description: "Design moderne avec animations fluides, responsive design et architecture CSS scalable.",
+            achievements: ["Animations fluides", "Responsive design", "Architecture CSS"]
+          },
+          {
+            name: "JavaScript",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+            level: "Avancé",
+            description: "Interactions dynamiques et manipulation du DOM. Intégration avec APIs et gestion d'état.",
+            achievements: ["DOM manipulation", "API integration", "State management"]
+          },
+          {
+            name: "jQuery",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jquery/jquery-original.svg",
+            level: "Avancé",
+            description: "Simplification des interactions utilisateur et animations. Compatibilité cross-browser.",
+            achievements: ["Interactions fluides", "Cross-browser", "Animations"]
+          }
+        ]
+      },
+      {
+        title: "Outils & Méthodes",
+        subtitle: "Workflow professionnel",
+        stats: "Certification Méthodes Agiles",
+        skills: [
+          {
+            name: "Git",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+            level: "Expert",
+            description: "Workflow Git avancé avec GitHub. Collaboration en équipe et gestion de branches stratégique.",
+            achievements: ["Workflow avancé", "Collaboration équipe", "Branches stratégiques"]
+          },
+          {
+            name: "Docker",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg",
+            level: "Intermédiaire",
+            description: "Conteneurisation d'applications pour déploiement cohérent. Architecture microservices.",
+            achievements: ["Conteneurisation", "Déploiement cohérent", "Microservices"]
+          },
+          {
+            name: "Méthodes Agiles",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trello/trello-original.svg",
+            level: "Certifié",
+            description: "Formation certifiée Grande École du Numérique. Scrum, Kanban et développement itératif.",
+            achievements: ["Certification GEN", "Scrum & Kanban", "Développement itératif"]
+          },
+          {
+            name: "PowerBI",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powerbi/powerbi-original.svg",
+            level: "Intermédiaire",
+            description: "Tableaux de bord analytiques et visualisation de données métier pour la prise de décision.",
+            achievements: ["Tableaux de bord", "Visualisation données", "Business Intelligence"]
+          }
+        ]
+      },
+      {
+        title: "Scripting & Gaming",
+        subtitle: "Innovation technique",
+        stats: "Projets innovants en cours",
+        skills: [
+          {
+            name: "Lua",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/lua/lua-original.svg",
+            level: "Expert",
+            description: "Scripts immersifs RedM avec intégration SQL. Gameplay complexe et systèmes de données temps réel.",
+            achievements: ["Scripts immersifs", "Intégration SQL", "Temps réel"]
+          },
+          {
+            name: "Python",
+            logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+            level: "Intermédiaire",
+            description: "Automatisation et outils de développement. Scripts d'optimisation et analyse de données.",
+            achievements: ["Automatisation", "Outils dev", "Analyse données"]
+          }
+        ]
+      }
+    ],
     skills: [
       {
-        title: "Figma",
-        description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-        // optional: leave the array empty if you don't want to display images
+        title: "PHP / Symfony",
+        description: <>Maîtrise du framework Symfony pour le développement d'applications web robustes et évolutives.</>,
         images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
         ],
       },
       {
-        title: "Next.js",
-        description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-        // optional: leave the array empty if you don't want to display images
+        title: "Base de données",
+        description: <>Optimisation SQL et gestion de bases de données MySQL pour des performances optimales.</>,
         images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+        ],
+      },
+      {
+        title: "API REST",
+        description: <>Développement d'API REST pour la communication entre systèmes et applications.</>,
+        images: [
+        ],
+      },
+      {
+        title: "Méthodes Agiles",
+        description: <>Formation aux méthodes agiles pour un développement collaboratif et itératif.</>,
+        images: [
+        ],
+      },
+      {
+        title: "Outils de développement",
+        description: <>Utilisation de GitHub, Trello, PowerBI et autres outils pour la gestion de projet.</>,
+        images: [
         ],
       },
     ],
